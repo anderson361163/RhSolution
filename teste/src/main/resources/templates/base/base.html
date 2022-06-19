@@ -1,0 +1,37 @@
+<!-- Axios -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!-- Validacoes de caracteres -->
+<script th:src="@{/js/validacoes/validacoesFormulario.js}"></script>
+<!-- Validacao de documento-->
+<script th:src="@{/js/validacoes/validadocumento.js}"></script>
+<div class="navbar nav_title" style="border: 0;">
+    <a href="#" class="site_title"><i class="fa fa-car"></i> <span>Della Volpe</span></a>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="profile clearfix"></div>
+
+<br/>
+
+<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+    <div class="menu_section">
+        <ul class="nav side-menu">
+            <li><a th:href="@{/}"><i class="fa fa-home"></i> Inicio </a>
+
+            </li>
+            <li><a><i class="fa fa-users"></i> Funcionário <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a th:href="@{/funcionario/cadastrar}">Cadastrar</a></li>
+                    <li><a th:href="@{/funcionario/listar}">Listar</a></li>
+                </ul>
+            </li>
+            <li><a><i class="fa fa-desktop"></i> Departamento <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a th:href="@{/departamento-pessoal/cadastrar}">Cadastrar</a></li>
+                    <li><a th:href="@{/departamento-pessoal/listar}">Listar</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

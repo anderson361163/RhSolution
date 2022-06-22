@@ -9,8 +9,11 @@ public class IndexController {
 
     @GetMapping("/")
     public String inicio(Model model) {
-        model.addAttribute("jesus", "Olá Mundo, Anderson");
         return "inicio.html";
     }
 
+    @GetMapping("/inicio")
+    public String inicioIndex(Model model) {
+        return "inicio.html";
+    }
 }

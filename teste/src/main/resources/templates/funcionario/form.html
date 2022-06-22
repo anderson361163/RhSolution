@@ -11,26 +11,27 @@
 	<title>Departamento pessoal </title>
 
 	<!-- Bootstrap -->
-	<link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link th:href="@{/vendors/bootstrap/dist/css/bootstrap.min.css}" rel="stylesheet">
 	<!-- Font Awesome -->
-	<link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link th:href="@{/vendors/font-awesome/css/font-awesome.min.css}" rel="stylesheet">
 	<!-- NProgress -->
-	<link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+	<link th:href="@{/vendors/nprogress/nprogress.css}" rel="stylesheet">
 	<!-- iCheck -->
-	<link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+	<link th:href="@{/vendors/iCheck/skins/flat/green.css}" rel="stylesheet">
 	<!-- bootstrap-wysiwyg -->
-	<link href="../vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
+	<link th:href="@{/vendors/google-code-prettify/bin/prettify.min.css}" rel="stylesheet">
 	<!-- Select2 -->
-	<link href="../vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+	<link th:href="@{/vendors/select2/dist/css/select2.min.css}" rel="stylesheet">
 	<!-- Switchery -->
-	<link href="../vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+	<link th:href="@{/vendors/switchery/dist/switchery.min.css}" rel="stylesheet">
 	<!-- starrr -->
-	<link href="../vendors/starrr/dist/starrr.css" rel="stylesheet">
+	<link th:href="@{/vendors/starrr/dist/starrr.css}" rel="stylesheet">
 	<!-- bootstrap-daterangepicker -->
-	<link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+	<link th:href="@{/vendors/bootstrap-daterangepicker/daterangepicker.css}" rel="stylesheet">
 
 	<!-- Custom Theme Style -->
-	<link href="../build/css/custom.min.css" rel="stylesheet">
+	<link th:href="@{/build/css/custom.min.css}" rel="stylesheet">
+
 
 </head>
 
@@ -142,12 +143,12 @@
 										<div class="col-md-6 col-sm-6 ">
 											<select name="departamento" required class="form-select form-select-sm"
 													aria-label=".form-select-sm example" id="listadepartamento" th:field="*{departamentoPessoal}">
-												<option value="0" selected disabled>
+												<option value="0" disabled>
 													Selecione um departamento
 												</option>
 												<option th:each="departamento: ${departamentos}"
 														th:value="${departamento.id}"
-														th:text="${departamento.nome}">Nome
+														th:text="${departamento.nome}">
 												</option>
 											</select>
 										</div>
@@ -184,6 +185,19 @@
 </div>
 
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+		
+		var opcaoInicial = document.getElementById('listadepartamento');
+		opcaoInicial.options[0].selected=true;
+	});
+	
+	
+</script>
+
+
 
 <!-- Injecta os departamentos no selecion -->
 <script th:src="@{/js/consumodeapi/apiDoDepartamento.js}"></script>

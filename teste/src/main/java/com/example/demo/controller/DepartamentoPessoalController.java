@@ -19,9 +19,6 @@ import java.util.List;
 public class DepartamentoPessoalController {
 
     @Autowired
-    private FuncionarioService servicoFuncionario;
-
-    @Autowired
     private DepartamentoPessoalService departamentoPessoalService;
 
     @GetMapping("/cadastrar")

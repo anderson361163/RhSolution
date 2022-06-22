@@ -64,15 +64,4 @@ public class FuncionarioController {
         return "funcionario/lista.html";
     }
 
-//    @GetMapping("/alterarfuncionarios/id")
-//    public String alterardepartamento(Long id, Model model) {
-//        System.out.println("Olá eu sou um id: " + id);
-//        List<Funcionario> funcionariolocalizado = servicoFuncionario.buscarFuncionario(id);
-//        model.addAttribute("funcionariolocalizado", funcionariolocalizado);
-//
-//        model.addAttribute("idDepartamento", funcionariolocalizado.get(0).getDepartamento().getId());
-//        model.addAttribute("nomeDepartamento", funcionariolocalizado.get(0).getDepartamento().getNome());
-//        return "funcionario/formalteracao.html";
-//    }
-
 }

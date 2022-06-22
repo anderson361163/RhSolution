@@ -54,4 +54,12 @@ public class Funcionario {
         this.dataAtualizacao = LocalDateTime.now();
     }
 
+	@Override
+	public String toString() {
+		return "Funcionario [id=" + id + ", nome=" + nome + ", cpf=" + cpf + ", dataNascimento=" + dataNascimento
+				+ ", salario=" + salario + ", departamentoPessoal=" + departamentoPessoal + ", dataCadastro="
+				+ dataCadastro + ", dataAtualizacao=" + dataAtualizacao + "]";
+	}
+
+    
 }

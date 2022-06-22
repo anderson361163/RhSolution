@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.dto.FuncionarioDTO;
 import com.example.demo.dto.mapper.DepartamentoPessoalMapper;
+import com.example.demo.model.Funcionario;
 import com.example.demo.service.DepartamentoPessoalService;
 import com.example.demo.service.FuncionarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,17 @@ public class FuncionarioController {
         funcionarioService.salvarFuncionario(funcionarioDTO);
         return "funcionario/sucessoFuncionario.html";
     }
-
+    
+    @GetMapping("/alterar/{id}")
+    public String telaalterarFuncionario(@PathVariable Long id, Model model) {
+    	System.out.println("qUAL O VALOR: "+ id);
+    	Funcionario buscarFuncionarioById = funcionarioService.buscarFuncionarioById(id);
+    	System.out.println(buscarFuncionarioById.toString());
+    	model.addAttribute("funcionarios", funcionarioService.buscarFuncionarioById(id));
+        model.addAttribute("departamentos", DepartamentoPessoalMapper.toResponseDTO(departamentoPessoalService.listarDepartamentos()));
+        return "funcionario/formAlteracao.html";
+    }
+    
     @PostMapping("/alterar/{id}")
     public String alterarFuncionario(@PathVariable Long id, @Valid FuncionarioDTO funcionarioDTO, BindingResult result) {
         if (result.hasErrors()) {
@@ -51,6 +62,8 @@ public class FuncionarioController {
         funcionarioService.atualizarFuncionario(id, funcionarioDTO);
         return "funcionario/sucessoFuncionario.html";
     }
+    
+    
 
     @GetMapping("/deletar/{id}")
     public String excluirdepartamento(@PathVariable Long id, Model model) {

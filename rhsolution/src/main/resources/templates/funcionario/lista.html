@@ -1,0 +1,106 @@
+<!DOCTYPE>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!-- Meta, title, CSS, favicons, etc. -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Departamento pessoal </title>
+
+</head>
+
+<body class="nav-md">
+	<div class="container body">
+		<div class="main_container">
+			<div class="col-md-3 left_col">
+				<div class="left_col scroll-view">
+				
+					 <div th:insert="@{base/base.html}"></div>
+					
+					<!-- /sidebar menu -->
+				</div>
+			</div>
+
+			<!-- top navigation -->
+			<div class="top_nav">
+				<div class="nav_menu">
+					<div class="nav toggle">
+						<a id="menu_toggle"><i class="fa fa-bars"></i></a>
+					</div>
+					<nav class="nav navbar-nav">
+						<ul class=" navbar-right">
+							<li class="nav-item dropdown open" style="padding-left: 15px;">
+
+							</li>
+
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<!-- /top navigation -->
+
+			<!-- page content -->
+			<div class="right_col" role="main">
+				<div class="">
+					<div class="page-title">
+					</div>
+					<div class="clearfix"></div>
+					<div class="row">
+						<div class="col-md-12 col-sm-12 ">
+							<div class="x_panel">
+								<div class="x_title">
+									<h2>Listagem de Funcinários </h2>
+									<ul class="nav navbar-right panel_toolbox">
+										
+									</ul>
+									<div class="clearfix"></div>
+								</div>
+								<div class="x_content">
+									<br />
+									<h2>Abaixo segue os departamentos da RH Solutions, para adicionar mais funcionários <a th:href="@{/funcionario/cadastrar}"><button type="button" class="btn btn-primary">Clique aqui</button></a></h2> </h2>
+									<table class="table table-striped">
+										<thead>
+											<tr>
+												<th>Nome</th>
+												<th>Data de Nascimento</th>
+												<th>Departamento</th>
+												<th>Alterar Funcionário</th>
+												<th>Excluir Funcionário</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr th:if="${funcionarios.empty}">
+												<td colspan="6">Nenhum funcionário localizado</td>
+											</tr>
+											<tr th:each="funcionario: ${funcionarios}">
+												<td><span th:text="${funcionario.nome}">  </span></td>
+												<td><span th:text="${#temporals.format(funcionario.dataNascimento, 'dd/MM/yyyy')}"></span></td>
+												<td><span th:text="${funcionario.departamentoPessoal.nome}"> </span></td>
+												<td>
+													<form class="card-body" th:action="@{/funcionario/alterar/{id}(id=${funcionario.id})}" method="GET">
+														<button type="submit" class="btn btn-warning">Alterar</button>
+													</form>
+												</td>
+												<td>
+													<form class="card-body" th:action="@{/funcionario/deletar/{id}(id=${funcionario.id})}" method="GET">
+														<button type="submit" class="btn btn-danger">Excluir</button>
+													</form>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!-- /page content -->
+		</div>
+	</div>
+
+
+</body></html>

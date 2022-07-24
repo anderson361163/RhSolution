@@ -1,0 +1,157 @@
+<!DOCTYPE>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!-- Meta, title, CSS, favicons, etc. -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Departamento pessoal </title>
+
+</head>
+
+<body class="nav-md">
+<div class="container body">
+	<div class="main_container">
+		<div class="col-md-3 left_col">
+			<div class="left_col scroll-view">
+
+
+				<!-- sidebar menu + validacoes -->
+				<div th:insert="@{base/base.html}"></div>
+
+				<!-- /sidebar menu + validacoes -->
+			</div>
+		</div>
+
+		<!-- top navigation -->
+		<div class="top_nav">
+			<div class="nav_menu">
+				<div class="nav toggle">
+					<a id="menu_toggle"><i class="fa fa-bars"></i></a>
+				</div>
+				<nav class="nav navbar-nav">
+					<ul class=" navbar-right">
+						<li class="nav-item dropdown open" style="padding-left: 15px;">
+
+						</li>
+
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<!-- /top navigation -->
+
+		<!-- page content -->
+		<div class="right_col" role="main">
+			<div class="">
+				<div class="page-title">
+				</div>
+				<div class="clearfix"></div>
+				<div class="row">
+					<div class="col-md-12 col-sm-12 ">
+						<div class="x_panel">
+							<div class="x_title">
+								<h2>Cadastrar Funcionários</h2>
+								<ul class="nav navbar-right panel_toolbox">
+
+								</ul>
+								<div class="clearfix"></div>
+							</div>
+							<div class="x_content">
+								<br />
+
+								<form id="demo-form2"
+									  onsubmit="validacoesFinais()"
+									  th:action="@{/funcionario/cadastrar}"
+									  method="post"
+									  data-parsley-validate
+									  class="form-horizontal form-label-left"
+									  th:object="${funcionario}">
+
+									<div class="item form-group">
+										<label class="col-form-label col-md-3 col-sm-3 label-align" for="nomeCompleto">Nome completo: <span class="required">*</span>
+										</label>
+										<div class="col-md-6 col-sm-6 ">
+											<input type="text" id="nomeCompleto" name="nome" th:field="*{nome}" onkeyup="validaTexto(this)" required class="form-control ">
+										</div>
+									</div>
+									<div class="item form-group">
+										<label class="col-form-label col-md-3 col-sm-3 label-align" for="nomeCompleto">
+											CPF: <span class="required">*</span>
+										</label>
+										<div class="col-md-6 col-sm-6 ">
+											<input type="text" name="cpf" pattern="[0-9]{11}" required
+												   onkeyup="validaNumeros(this); validacpf(this)" maxlength="11"
+												   class="form-control" data-inputmask="'mask': '99999999'" th:field="*{cpf}">
+
+											<div id="cpfMessage" style="display: none;">
+												CPF INVÁLIDO, POR FAVOR INSIRA CORRETAMENTE
+											</div>
+										</div>
+									</div>
+
+									<div class="item form-group">
+										<label class="col-form-label col-md-3 col-sm-3 label-align"
+											   for="dataNascimento">Data de Nascimento: <span class="required">*</span>
+										</label>
+										<div class="col-md-6 col-sm-6 ">
+											<input type="date" id="dataNascimento" name="dataNascimento" th:field="*{dataNascimento}" required="required" class="form-control">
+										</div>
+									</div>
+									<div class="item form-group">
+										<label for="middle-name"
+											   class="col-form-label col-md-3 col-sm-3 label-align">Salário: </label>
+										<div class="col-md-6 col-sm-6 ">
+											<input id="middle-name" type="text" name="salario"
+												   pattern="(^[\d]{4,8})([.?]{0,1})([\d]{2})$" maxlength="8"
+												   minlength="4" required onkeyup="validaDinheiro(this)"
+												   class="form-control" th:field="*{salario}">
+
+										</div>
+									</div>
+
+									<div class="item form-group">
+										<label for="middle-name"
+											   class="col-form-label col-md-3 col-sm-3 label-align">Departamento:
+										</label>
+										<div class="col-md-6 col-sm-6 ">
+											<select name="departamento" required class="form-select form-select-sm"
+													aria-label=".form-select-sm example" id="listadepartamento" th:field="*{departamentoPessoal}">
+												<option value="0" disabled>
+													Selecione um departamento
+												</option>
+												<option th:each="departamento: ${departamentos}"
+														th:value="${departamento.id}"
+														th:text="${departamento.nome}">
+												</option>
+											</select>
+										</div>
+									</div>
+
+									<div class="ln_solid"></div>
+									<div class="item form-group">
+										<div class="col-md-6 col-sm-6 offset-md-3">
+											<button class="btn btn-primary" type="reset">Limpar</button>
+											<button type="submit" class="btn btn-success">Salvar</button>
+										</div>
+									</div>
+
+								</form>
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!-- /page content -->
+	</div>
+</div>
+
+</body>
+
+</html>

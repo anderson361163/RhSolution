@@ -1,0 +1,86 @@
+<!DOCTYPE>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!-- Meta, title, CSS, favicons, etc. -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Departamento pessoal </title>
+
+</head>
+
+<body class="nav-md">
+	<div class="container body">
+		<div class="main_container">
+			<div class="col-md-3 left_col">
+				<div class="left_col scroll-view">
+					
+
+					<!-- sidebar menu -->
+					 <div th:insert="@{base/base.html}"></div>
+					
+					<!-- /sidebar menu -->
+				</div>
+			</div>
+
+			<!-- top navigation -->
+			<div class="top_nav">
+				<div class="nav_menu">
+					<div class="nav toggle">
+						<a id="menu_toggle"><i class="fa fa-bars"></i></a>
+					</div>
+					<nav class="nav navbar-nav">
+						<ul class=" navbar-right">
+							<li class="nav-item dropdown open" style="padding-left: 15px;">
+
+							</li>
+
+						</ul>
+					</nav>
+				</div>
+			</div>
+			<!-- /top navigation -->
+
+			<!-- page content -->
+			<div class="right_col" role="main">
+				<div class="">
+					<div class="page-title">
+					</div>
+					<div class="clearfix"></div>
+					<div class="row">
+						<div class="col-md-12 col-sm-12 ">
+							<div class="x_panel">
+								<div class="x_title">
+									<h2>Cadastro de Departamento </h2>
+									<ul class="nav navbar-right panel_toolbox">
+										
+									</ul>
+									<div class="clearfix"></div>
+								</div>
+								<div class="x_content">
+									<br />
+									
+
+									<div class="alert alert-success alert-dismissible "
+										role="alert">
+									
+										<h3><strong>SUCESSO!</strong></h3><BR>
+										 Operação com o Departamento foi realizada com sucesso. 
+										
+									</div>
+									<a th:href="@{/}"><button type="button" class="btn btn-primary">Voltar</button></a>
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!-- /page content -->
+		</div>
+	</div>
+
+</body></html>
